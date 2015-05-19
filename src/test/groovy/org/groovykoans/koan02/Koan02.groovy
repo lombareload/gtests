@@ -20,7 +20,8 @@ class Koan02 extends GroovyTestCase {
         def predicate2 = true
 
         // ------------ START EDITING HERE ----------------------
-
+        predicate1 = ! predicate1
+        predicate2 = ! predicate2
 
         // ------------ STOP EDITING HERE  ----------------------
 
@@ -34,7 +35,8 @@ class Koan02 extends GroovyTestCase {
         List<String> list = ['item']
 
         // ------------ START EDITING HERE ----------------------
-
+        map.x = 'x'
+        list.clear()
 
         // ------------ STOP EDITING HERE  ----------------------
 
@@ -48,7 +50,7 @@ class Koan02 extends GroovyTestCase {
         String s2 = ''
 
         // ------------ START EDITING HERE ----------------------
-
+        (s1,s2) = [s2,s1]
 
         // ------------ STOP EDITING HERE  ----------------------
 
@@ -65,7 +67,7 @@ class Koan02 extends GroovyTestCase {
 
         // Remove (or change) the offending integer to continue
         // ------------ START EDITING HERE ----------------------
-
+        balance[3] = 1
 
         // ------------ STOP EDITING HERE  ----------------------
 
@@ -73,9 +75,12 @@ class Koan02 extends GroovyTestCase {
         // For an easier way to do this in Groovy, check out the any() method at
         // http://groovy.codehaus.org/groovy-jdk/java/lang/Object.html#any(groovy.lang.Closure)
         def result = true
-        for (int i : balance) {
-            result = result && i.asBoolean()
-        }
+
+        result = balance.every()
+
+//        for (int i : balance) {
+//            result = result && i.asBoolean()
+//        }
         assert result
     }
 
