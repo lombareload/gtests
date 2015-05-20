@@ -89,11 +89,10 @@ class Koan06 extends GroovyTestCase {
         // range objects, store all the prime numbers between 200 and 250 in the target variable
         def primesBetween200And250 = []
         // ------------ START EDITING HERE ----------------------
-        primesBetween200And250 = [200..250].toArray().findAll {int number ->
-//            !([2..(number/2)]).iterator().any {
-//                number % it == 0
-//            }
-            number % 3 == 0
+        primesBetween200And250 = (200..250).findAll {int number ->
+            !(2..(number/2)).iterator().any {
+                number % it == 0
+            }
         }
 
         // ------------ STOP EDITING HERE  ----------------------
